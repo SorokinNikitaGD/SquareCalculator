@@ -1,0 +1,6 @@
+D:\Job\SquareCalculator\bin\Debug\SquareCalculator.dll
+D:\Job\SquareCalculator\bin\Debug\SquareCalculator.pdb
+D:\Job\SquareCalculator\obj\Debug\SquareCalculator.csproj.AssemblyReference.cache
+D:\Job\SquareCalculator\obj\Debug\SquareCalculator.csproj.CoreCompileInputs.cache
+D:\Job\SquareCalculator\obj\Debug\SquareCalculator.dll
+D:\Job\SquareCalculator\obj\Debug\SquareCalculator.pdb
