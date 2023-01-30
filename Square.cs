@@ -8,30 +8,30 @@ namespace SquareCalculator
 {
     public class Square
     {
-        bool triangleExist, triangleRight;
-        public void CountSquare(double a, double b, double c, out double S) // Вычисление площади любого треугольника по трем сторонам
+        public double CountSquare(double r) // Вычисление площади круга
         {
-            IsTriangleExist(a, b, c);
-            if (triangleExist)
+            double S;
+            S = Math.PI * Math.Pow(r, 2);
+            return S;
+        }
+
+        public double CountSquare(double a, double b, double c) // Вычисление площади любого треугольника по трем сторонам
+        {
+            double S;
+            if (IsTriangleExist(a, b, c))
             {
-                IsTriangleRight(a, b, c, out S);
-                if (!triangleRight)
-                {
-                    double p;
-                    p = (a + b + c) / 2;
-                    S = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
-                }
+                double p;
+                p = (a + b + c) / 2;
+                S = Math.Sqrt(p * (p - a) * (p - b) * (p - c));
             }
             else
                 S = 0;
-        }
-        private void CountSquare(double r, out double S) // Вычисление площади круга
-        {
-            S = Math.PI * Math.Pow(r, 2);
+            return S;
         }
 
-        private void IsTriangleExist(double a, double b, double c) // Проверка существования треугольника
+        public bool IsTriangleExist(double a, double b, double c) // Проверка существования треугольника
         {
+            bool triangleExist;
             if (a > 0 && b > 0 && c > 0 &&
                 a < b + c &&
                 b < a + c &&
@@ -39,26 +39,26 @@ namespace SquareCalculator
                 triangleExist = true;
             else
                 triangleExist = false;
+            return triangleExist;
         }
-        private void IsTriangleRight(double a, double b, double c, out double Square) // Проверка прямоугольности треугольника
+        public bool IsTriangleRight(double a, double b, double c) // Проверка прямоугольности треугольника
         {
+            bool triangleRight;
             double hypot, legSum = 0d;
             double[] sides = { a, b, c };
             hypot = sides.Max();
-            Square = 1;
             for (int i = 0; i < sides.Length; i++)
             {
                 if (sides[i] != hypot)
                 {
                     legSum += Math.Pow(sides[i], 2);
-                    Square *= sides[i];
                 }
             }
             if (legSum == Math.Pow(hypot, 2))
                 triangleRight = true;
             else
                 triangleRight = false;
-            Square /= 2;
+            return triangleRight;
         }
 
         public enum ChooseShape
